@@ -9,3 +9,11 @@ pyautogui.click()
 pyautogui.click(button='left')
 pyautogui.click(button='right')
 pyautogui.click(button='middle')
+
+# Clicar X vezes
+pyautogui.click(clicks=10)
+
+# Funções prontas para clicks
+pyautogui.doubleClick()
+pyautogui.rightClick()
+pyautogui.middleClick()
