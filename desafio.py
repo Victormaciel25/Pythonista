@@ -4,5 +4,5 @@ email = pyautogui.prompt(text='Digite seu e-mail', title='Informações obrigat�
 senha = pyautogui.password(text='Digite sua senha', title='Informações obrigatórias', mask='*')
 pyautogui.click(2178,476, duration=1)
 pyautogui.write(email)
-pyautogui.hotkey('return')
+pyautogui.hotkey('enter')
 pyautogui.write(senha)
