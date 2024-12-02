@@ -1,4 +1,3 @@
-# feito no notebook
 import pyautogui
 import keyboard
 from time import sleep
