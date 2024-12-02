@@ -1,17 +1,18 @@
 import webbrowser
 import pyautogui
 from time import sleep
+from loginesenha import login,senha
 
 # 1 - Navegar até o site https://instagram.com
 webbrowser.open_new_tab('https://www.instagram.com/accounts/login/')
 sleep(2)
 # 2 - Entrar com meu usuário
 pyautogui.click(2605,447,duration=1)
-pyautogui.write('nejplastrep')
+pyautogui.write(login)
 sleep(1)
 # 3 - Entrar com a minha senha
 pyautogui.click(2606,490,duration=1)
-pyautogui.write('Victor@2024')
+pyautogui.write(senha)
 sleep(1)
 # 4 - Clicar em "login"
 pyautogui.click(2715,539,duration=1)
