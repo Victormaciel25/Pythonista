@@ -31,12 +31,22 @@ pyautogui.click(2085,432,duration=1)
 sleep(2)
 # 9 - Clicar na postagem mais recente
 pyautogui.click(2512,903,duration=1)
-sleep(2)
+sleep(3)
 # 10 - Verificar se já curti ou não aquela postagem
-
+like = pyautogui.locateCenterOnScreen('like.png')
+sleep(1)
 # 11 - Se já tiver curtido, fazer nada, e pausar o bot por 24 horas
+if like is not None:
+    sleep(86400)
 # 12 - Se não tiver curtido, curti a foto
+elif like == None:
+    pyautogui.click(2797,919,duration=1)
+    sleep(5)
 # 13 - Se não tiver curtido, comentar na foto
+    pyautogui.click(2836,921,duration=1)
+    sleep(3)
+    pyautogui.typewrite('Legal')
+
 # 14 - Pausar por 24 horas
 # 15 - Após as 24 horas rodar tudo de novo
 
