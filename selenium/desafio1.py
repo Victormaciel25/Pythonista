@@ -25,14 +25,25 @@ def iniciar_driver():
 
 
 driver = iniciar_driver()
-driver.get('https://cursoautomacao.netlify.app/')
+driver.get('https://cursoautomacao.netlify.app/desafios.html')
 
-campo_idade = driver.find_element(By.ID, 'campoIdade')
+btn1 = driver.find_element(By.CSS_SELECTOR, '.btn.btn-info')
+btn2 = driver.find_element(By.CSS_SELECTOR, '.btn2.btn.btn-dark')
+btn3 = driver.find_element(By.CSS_SELECTOR, '.btn2.btn.btn-warning')
 
-if campo_idade.is_enabled():
+if btn1.is_enabled():
     print('Campo está habilitato')
+if btn1.is_enabled() == False:
+    print('campo está desabilitado')
 
-if campo_idade.is_enabled() == False:
+if btn2.is_enabled():
+    print('Campo está habilitato')
+if btn2.is_enabled() == False:
+    print('campo está desabilitado')
+
+if btn3.is_enabled():
+    print('Campo está habilitato')
+if btn3.is_enabled() == False:
     print('campo está desabilitado')
     
 input('')
