@@ -32,19 +32,19 @@ btn2 = driver.find_element(By.CSS_SELECTOR, '.btn2.btn.btn-dark')
 btn3 = driver.find_element(By.CSS_SELECTOR, '.btn2.btn.btn-warning')
 
 if btn1.is_enabled():
-    print('Campo está habilitato')
+    print('Botão 1 está habilitato')
 if btn1.is_enabled() == False:
-    print('campo está desabilitado')
-
+    print('Botão 1 está desabilitado')
+# ou usando "else"
 if btn2.is_enabled():
-    print('Campo está habilitato')
-if btn2.is_enabled() == False:
-    print('campo está desabilitado')
+    print('Botão 2 está habilitato')
+else:
+    print('Botão 2 está desabilitado')
 
 if btn3.is_enabled():
-    print('Campo está habilitato')
-if btn3.is_enabled() == False:
-    print('campo está desabilitado')
+    print('Botão 3 está habilitato')
+else:
+    print('Botão 3 está desabilitado')
     
 input('')
 driver.close()
