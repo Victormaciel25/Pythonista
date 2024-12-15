@@ -28,11 +28,7 @@ driver = iniciar_driver()
 
 driver.get('https://cursoautomacao.netlify.app')
 
-# Ser útil
-# Precisa ser lento(não seja detectado como bot)
-# Quer visualizar melhor a execução dos passos
-# Freiar a automação por X segundos
-sleep(10)
+
 
 input('')
 driver.close()
