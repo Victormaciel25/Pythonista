@@ -29,7 +29,7 @@ driver = iniciar_driver()
 driver.get('https://cursoautomacao.netlify.app/')
 # Situação 1 - Fechar alerta
 # Descer a página até elementos estarem visíveis
-driver.execute_script('window.scrollTo(0, 250);')
+driver.execute_script('window.scrollTo(0, 350);')
 # Digitar meu nome
 campo_nome = driver.find_element(By.ID, "nome")
 sleep(1)
@@ -57,9 +57,24 @@ sleep(2)
 # Confirmar
 alerta2.accept()
 # Cancelar
-alerta2.dismiss()
+#alerta2.dismiss()
 
-
+# Situação 3 - Inserir dados em alerta e depois confirmar ou cancelar esses dados, além de fechar a alerta posterior
+# Encontrar o campo fazer pergunta
+botao_pergunta = driver.find_element(By.ID, "botaoPrompt")
+sleep(1)
+botao_pergunta.click()
+# Digitar algo dentro da alerta
+alerta3 = driver.switch_to.alert
+sleep(1)
+alerta3.send_keys('Victor')
+sleep(2)
+# Clicar em confirmar (ou cancelar)
+alerta3.accept()
+sleep(1)
+# Fechar a janela posterior
+alerta3.dismiss()
+sleep(1)
 
 input('')
 driver.close()
