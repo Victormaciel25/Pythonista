@@ -51,7 +51,7 @@ sleep(1)
 sugestoes_de_voo = wait.until(condicao_esperada.visibility_of_any_elements_located((By.XPATH, "//div[@class='OJsCSd']")))
 sleep(1)
 sugestoes_de_voo[0].click()
-# -------------------------- outro exemplo, para login
+# ---------------- outro exemplo, para login -----------------
 driver.get('https://cursoautomacao.netlify.app/login')
 
 campo_email = wait.until(condicao_esperada.element_to_be_clickable((By.XPATH, "//input[@id='email']")))
