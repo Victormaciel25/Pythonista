@@ -25,9 +25,15 @@ def iniciar_driver():
 
 
 driver = iniciar_driver()
+driver.implicitly_wait(10)
+driver.get('https://google.com/flights')
+driver.maximize_window()
+sleep(1)
+driver.execute_script("window.scrollTo(0, 500);")
+sleep(1)
 
-driver.get('https://cursoautomacao.netlify.app')
-
+sugestoes_de_voo = driver.find_element(By.XPATH, "//div[@class='OJsCSd']")
+sugestoes_de_voo.click()
 
 
 input('')
