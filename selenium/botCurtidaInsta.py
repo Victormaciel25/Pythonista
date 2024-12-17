@@ -99,6 +99,7 @@ while True:
         verifica_curtida = driver.find_element(By.XPATH,'//section//div[@role="button"]//*[@aria-label="Curtir"]')
     except:
         print('A imagem já havia sido curtida.')
+        sleep(86400)
     else:
         botao_curtir = driver.find_elements(By.XPATH,'//article[@role="presentation"]//section//div[@role="button"]')
         sleep(5)
