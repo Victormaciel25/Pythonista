@@ -19,3 +19,4 @@ class QuotesToScrapeSpider(scrapy.Spider):
                 'autor':elemento.xpath(".//small[@class='author']/text()").get(),
                 'tags':elemento.xpath(".//a[@class='tag']/text()").getall()
             }
+        # Como varrer várias páginas
