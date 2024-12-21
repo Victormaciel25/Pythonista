@@ -19,3 +19,14 @@ class GoodReadsSpider(scrapy.Spider):
                 'autor':elemento.xpath(".//span[@class='authorOrTitle']/text()").get(),
                 'tags':elemento.xpath(".//div[@class='greyText smallText left']/a/text()").getall()
             }
+        # Encontrar o link para a próxima página e extrair o número da próxima página
+        numero_proxima_pagina = response.xpath("//a[@class='next_page']/@href").get().split("=")[1]
+        print('#'*20)
+        print(numero_proxima_pagina)
+        print('#'*20)
+        if numero_proxima_pagina is not None:
+            link_proxima_pagina = f'https://www.goodreads.com/quotes?page={numero_proxima_pagina}'
+            print('#'*20)
+            print(link_proxima_pagina)
+            print('#'*20)
+            yield scrapy.Request(url=link_proxima_pagina,callback=self.parse)

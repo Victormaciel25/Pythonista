@@ -20,3 +20,12 @@ class QuotesToScrapeSpider(scrapy.Spider):
                 'tags':elemento.xpath(".//a[@class='tag']/text()").getall()
             }
         # Como varrer várias páginas
+        # Tentar encontrar o botão próximo, se encontrar, vou varrer essas páginas
+        try:
+            link_proxima_pagina = response.xpath("//li[@class='next']/a/@href").get()
+            if link_proxima_pagina is not None:
+                link_proxima_pagina_completo = response.urljoin(link_proxima_pagina)
+                yield scrapy.Request(url=link_proxima_pagina_completo,callback=self.parse)
+        except:
+            # Se não encontrar, vou parar a automação
+            print('Chegamos na última página')
