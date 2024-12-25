@@ -10,8 +10,10 @@ class ProxyscraperSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
     # Response
     def parse(self, response):
+        # Montar um xpath que pegue cada linha
         for linha in response.xpath('//*[@id="list"]/div/div[2]/div/table/tbody/tr'):
             yield {
+                # Montar individualmente cada item
                 'IP Address': linha.xpath('./td[1]/text()').get(),
                 'Port': linha.xpath('./td[2]/text()').get(),
                 'Code': linha.xpath('./td[3]/text()').get(),
