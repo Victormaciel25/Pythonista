@@ -1,3 +1,5 @@
+from APIkey import chaveapi
+
 # Scrapy settings for varredor_de_sites project
 #
 # For simplicity, this file contains only settings considered important or
@@ -45,6 +47,12 @@ FAKEUSERAGENT_PROVIDERS = [
 ## Set Fallback User-Agent
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.203'
 
+SCRAPEOPS_API_KEY = chaveapi
+SCRAPEOPS_PROXY_ENABLED = True
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapeops_scrapy_proxy_sdk.scrapeops_scrapy_proxy_sdk.ScrapeOpsScrapyProxySdk': 725,
+}
 
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
