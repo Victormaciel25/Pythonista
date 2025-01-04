@@ -41,4 +41,23 @@ def iniciar_driver():
     return driver, wait
 
 class ProductScraperSpider(scrapy.Spider):
-    
+    # identidade
+    name = 'precobot'
+    # Request
+
+    def start_requests(self):
+        urls = ['https://dadosdinamicos.netlify.app/']
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse, meta={'proximo_url': url})
+    # Response
+    def parse(self, response):
+        driver, wait = iniciar_driver()
+        driver.get(response.meta['proximo_url'])
+        response_webdriver = Selector(text=driver.page_source)
+        for produto in response_webdriver.xpath("//table/tr[@class='pro-list-info']"):
+            yield {
+                'Produto': produto.xpath("./td[1]/text()").get(),
+                'Preço': produto.xpath("./td[2]/text()").get(),
+                'Nota': produto.xpath("./td[3]/text()").get(),
+            }
+        driver.close()
